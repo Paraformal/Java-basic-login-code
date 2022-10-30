@@ -1,0 +1,75 @@
+import java.lang.reflect.Array;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+class Test2 {
+
+    public static void main(String[] args) {
+        List<String> user1 = new ArrayList<String>();
+        Collections.addAll(user1, "Peter", "ralph", "marinos", "fares");
+
+        List<String> pass1 = new ArrayList<String>();
+        Collections.addAll(pass1, "hey2008?", "khoury", "boya");
+
+        double bal = 30000;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Sign in" + "\n");
+        System.out.print("Enter your username: ");
+        String userN = sc.next();
+
+        if (user1.contains(userN)) {
+            System.out.print("Enter you password: ");
+            String pass = sc.next();
+            if (pass1.contains(pass)) {
+                System.out.println("Welcome back " + userN);
+                System.out.println(
+                        "You're current balance is:" + bal + "$" + "\n"
+                                + "would you like to withdraw or add some money?");
+                String Wans = sc.next();
+                if (Wans.equals("withdraw")) {
+                    System.out.print("How much? ==> ");
+                    double Wamo = sc.nextDouble();
+                    double Lamo = bal - Wamo;
+                    System.out.println("The amount left in your account is: " + Lamo);
+                } else if (Wans.equals("add")) {
+                    System.out.print("How much would you like to add? ==> ");
+                    double Aamo = sc.nextDouble();
+                    double Namo = bal + Aamo;
+                    System.out.println("You're balance is now: " + Namo + "$");
+
+                } else {
+                    System.out
+                            .println("Invalid input! If you need help feel free to contact: paraformaldead@gmail.com");
+                }
+            } else {
+                System.out.println("Wrong pass! Please try again.");
+            }
+        } else {
+            System.out.println("Sorry this username is not registered in our database!");
+            System.out.print("If you want to sign up enter R: ");
+            String signC = sc.next();
+            if (signC.equals("R")) {
+                System.out.print("Enter your mail: ");
+                String Suser = sc.next();
+                System.out.print("Choose a password: ");
+                String Spass = sc.next();
+                System.out.println("Okay now you can procceed to login");
+            } else {
+                System.out.println("Alright then! Come back once you have a right user/pass to sign in.");
+                System.out.println("For more info press D: ");
+                String Cinfo = sc.next();
+                if (Cinfo.equals("D")) {
+                    System.out.println("Author: Paraformaldead#4747" + "\n" + "Simple java cmd login code" + "\n"
+                            + "For more info feel free to contact me on: paraformaldead@gmail.com");
+                } else {
+                    System.out.println("GoodBye!");
+                }
+            }
+        }
+
+    }
+
+}
